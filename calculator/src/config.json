@@ -1,0 +1,29 @@
+{
+    "calElementArray" : [
+        {"name": "ac", "sign": "AC"},
+        {"name": "del", "sign": "X"},
+        {"name": "per", "sign": "%"},
+        {"name": "div", "sign": "/"},
+       
+        {"name": "seven", "sign": "7"},
+        {"name": "eight", "sign": "8"},
+        {"name": "nine", "sign": "9"},
+        {"name": "mul", "sign": "*"},
+
+        {"name": "four", "sign": "4"},
+        {"name": "five", "sign": "5"},
+        {"name": "six", "sign": "6"},
+        {"name": "sub", "sign": "-"},
+
+        {"name": "one", "sign": "1"},
+        {"name": "two", "sign": "2"},
+        {"name": "three", "sign": "3"},
+        {"name": "add", "sign": "+"},
+       
+        {"name": "power", "sign": "^"},
+        {"name": "zero", "sign": "0"},
+        {"name": "dot", "sign": "."},
+        {"name": "euqal", "sign": "="}
+    ],
+    "operatorArray": ["+", "-", "*", "/", "%", "^"]
+}
