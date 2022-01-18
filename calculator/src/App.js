@@ -7,27 +7,39 @@ const configString = data;
 function App() {
 	const [inputString, setInputString] = useState('');
 	const [operator, setOperator] = useState(null);
-	const [outputString, setOutputString] = useState(null);
+	const [outputString, setOutputString] = useState('');
 
 	const handleInput = (value, name) => {
-		if (outputString) {
-			setInputString(value);
-			setOutputString('');
-		} else if (value === 'AC') {
+		if (value === 'AC') {													//for clear all
 			setInputString('');
 			setOutputString('');
-		} else if (value === '=') {
-			setOutputString(handleCalculation());
 		} else {
-			setInputString(inputString + value);
-			if (isNaN(value)) {
-				let operatorObj = { name: name, sign: value };
-				setOperator(operator => ({
-					...operator,
-					...operatorObj 
-				}));
+			if (outputString !== '') {											//if output already exists || not first input
+				if (isNaN(value) && value !== '=') {
+					setInputString(outputString + value);
+				} else if (!isNaN(value)) {
+					setInputString(value);
+				}
+				setOutputString('');
+			} else {															//first input || after reset
+				if (value === '=') {
+					setOutputString(handleCalculation());
+				} else {
+					if (!isNaN(value)) {
+						setInputString(inputString + value);
+					}
+					if (isNaN(value) && inputString !== '') {
+						let operatorObj = { name: name, sign: value };
+						setInputString(inputString + value);
+						setOperator(operator => ({
+							...operator,
+							...operatorObj
+						}));
+					}
+				}
 			}
 		}
+
 	}
 
 	const handleCalculation = () => {
